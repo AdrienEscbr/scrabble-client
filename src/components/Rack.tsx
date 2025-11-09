@@ -37,10 +37,9 @@ export const Rack: React.FC<{
           className={`rack-tile ${selectedTileId === t.tileId ? 'selected' : ''}`}
           onClick={() => !disabled && onSelect(t.tileId)}
           role="button"
-          draggable={!disabled}
+          draggable={true}
           onDragStart={() => handleDragStart(t.tileId)}
           onDragOver={(e) => {
-            if (disabled) return;
             e.preventDefault();
             setDragOver(t.tileId);
           }}
