@@ -7,6 +7,11 @@ export default defineConfig(() => ({
   plugins: [react()],
   // Ensure correct asset paths when hosted at GitHub Pages under /scrabble-client/
   base: process.env.VITE_BASE_PATH || '/scrabble-client/',
+  build: {
+    // Output directly to repo-level docs/ so GitHub Pages can deploy from main/docs
+    outDir: '../docs',
+    emptyOutDir: true,
+  },
   resolve: {
     alias: {
       '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
