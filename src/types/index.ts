@@ -93,6 +93,7 @@ export type ClientToServerEnvelope = {
     | 'reconnect'
     | 'toggleReady'
     | 'startGame'
-    | 'playMove';
+    | 'playMove'
+    | 'leaveRoom';
   payload: any;
 };
