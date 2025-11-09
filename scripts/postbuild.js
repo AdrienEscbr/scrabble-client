@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..', '..');
+const root = path.resolve(__dirname, '..');
 const buildDir = path.resolve(__dirname, '..', 'build');
 const targetDir = root; // deploy to repository root
 

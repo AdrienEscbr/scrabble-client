@@ -29,7 +29,8 @@ export function connectSocket(dispatch: Dispatch, getState: () => ClientState) {
 
   dispatch({ type: 'connection:set', status: 'connecting' });
 
-  const url = (import.meta as any).env?.VITE_GAME_SERVER_URL || getEndpointFromMeta() || 'http://localhost:4000';
+  // CRA uses REACT_APP_* env vars at build time
+  const url = process.env.REACT_APP_GAME_SERVER_URL || getEndpointFromMeta() || 'http://localhost:4000';
   socket = io(url, {
     // Allow default transport negotiation (polling -> websocket upgrade)
     autoConnect: true,
