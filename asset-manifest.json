@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/scrabble-client/static/css/main.a2a9571b.css",
+    "main.js": "/scrabble-client/static/js/main.4d27869b.js",
+    "index.html": "/scrabble-client/index.html",
+    "main.a2a9571b.css.map": "/scrabble-client/static/css/main.a2a9571b.css.map",
+    "main.4d27869b.js.map": "/scrabble-client/static/js/main.4d27869b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2a9571b.css",
+    "static/js/main.4d27869b.js"
+  ]
+}
