@@ -14,12 +14,21 @@ type Dispatch = React.Dispatch<
   | { type: 'notify:add'; payload: { type: 'info' | 'error'; message: string } }
 >;
 
+function getEndpointFromMeta(): string | undefined {
+  try {
+    const meta = document.querySelector('meta[name="scrabble-endpoint"]') as HTMLMetaElement | null;
+    return meta?.content || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 export function connectSocket(dispatch: Dispatch, getState: () => ClientState) {
   if (socket?.connected) return socket;
 
   dispatch({ type: 'connection:set', status: 'connecting' });
 
-  const url = import.meta.env.VITE_GAME_SERVER_URL || 'http://localhost:4000';
+  const url = (import.meta as any).env?.VITE_GAME_SERVER_URL || getEndpointFromMeta() || 'http://localhost:4000';
   socket = io(url, {
     // Allow default transport negotiation (polling -> websocket upgrade)
     autoConnect: true,
