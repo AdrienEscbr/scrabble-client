@@ -1,24 +1,13 @@
-// Post-build adjustments for GitHub Pages (deploy from main/docs)
-// - Copy CRA build (client/build) to repo-level docs/
-// - Create SPA fallback 404.html
+// Post-build adjustments for GitHub Pages (deploy from main root)
+// - Copy CRA build (client/build) to repo root
+// - Create SPA fallback 404.html at root
 // - Add .nojekyll to bypass Jekyll processing
 const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..', '..');
 const buildDir = path.resolve(__dirname, '..', 'build');
-const docsDir = path.join(root, 'docs');
-
-function rimraf(p) {
-  if (!fs.existsSync(p)) return;
-  for (const entry of fs.readdirSync(p)) {
-    const cur = path.join(p, entry);
-    const stat = fs.lstatSync(cur);
-    if (stat.isDirectory()) rimraf(cur);
-    else fs.unlinkSync(cur);
-  }
-  fs.rmdirSync(p);
-}
+const targetDir = root; // deploy to repository root
 
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) return;
@@ -37,15 +26,17 @@ if (!fs.existsSync(buildDir)) {
   process.exit(1);
 }
 
-// Clean docs and copy fresh build
-if (fs.existsSync(docsDir)) rimraf(docsDir);
-fs.mkdirSync(docsDir, { recursive: true });
-copyDir(buildDir, docsDir);
+// Clean existing CRA artifacts at root (static/ only to be safe), then copy
+const staticDir = path.join(targetDir, 'static');
+if (fs.existsSync(staticDir)) {
+  fs.rmSync(staticDir, { recursive: true, force: true });
+}
+copyDir(buildDir, targetDir);
 
 // Create SPA fallback and .nojekyll
-const indexHtml = path.join(docsDir, 'index.html');
-const notFound = path.join(docsDir, '404.html');
-const nojekyll = path.join(docsDir, '.nojekyll');
+const indexHtml = path.join(targetDir, 'index.html');
+const notFound = path.join(targetDir, '404.html');
+const nojekyll = path.join(targetDir, '.nojekyll');
 
 try {
   if (fs.existsSync(indexHtml)) {
