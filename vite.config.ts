@@ -5,6 +5,8 @@ import { fileURLToPath, URL } from 'node:url';
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
   plugins: [react()],
+  // Ensure correct asset paths when hosted at GitHub Pages under /scrabble-client/
+  base: process.env.VITE_BASE_PATH || '/scrabble-client/',
   resolve: {
     alias: {
       '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
