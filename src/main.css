@@ -1,0 +1,15 @@
+html, body, #root { height: 100%; }
+body { margin: 0; }
+.board-cell { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; font-weight: 600; }
+.board-row { display: flex; }
+.bonus-DL { background-color: #cfe2ff; }
+.bonus-TL { background-color: #b6d4fe; }
+.bonus-DW { background-color: #f8d7da; }
+.bonus-TW { background-color: #f5c2c7; }
+.rack-tile { width: 36px; height: 36px; border: 1px solid #bbb; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; margin-right: 6px; background: #fff; cursor: pointer; }
+.rack-tile.selected { outline: 2px solid #0d6efd; }
+.active-player { font-weight: 700; color: #0d6efd; }
+.board { user-select: none; }
+.sidebar { min-width: 260px; }
+.log-panel { max-height: 220px; overflow: auto; }
+.placement-local { color: #198754; }
