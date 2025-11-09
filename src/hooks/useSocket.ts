@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { connectSocket, disconnectSocket, sendMessage } from '@services/socket';
-import { useClient } from '@context/ClientContext';
+import { connectSocket, disconnectSocket, sendMessage } from 'services/socket';
+import { useClient } from 'context/ClientContext';
 
 export function useSocket() {
   const { state, dispatch } = useClient();
@@ -37,3 +37,4 @@ export function useSocket() {
 
   return { connectionStatus: state.connectionStatus, api } as const;
 }
+

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card, Row, Col } from 'react-bootstrap';
-import { useClient } from '@context/ClientContext';
-import { PlayerList } from '@components/PlayerList';
-import { useSocket } from '@hooks/useSocket';
+import { useClient } from 'context/ClientContext';
+import { PlayerList } from 'components/PlayerList';
+import { useSocket } from 'hooks/useSocket';
 
 export const LobbyScreen: React.FC = () => {
   const { state } = useClient();
@@ -55,3 +55,4 @@ export const LobbyScreen: React.FC = () => {
     </Row>
   );
 };
+

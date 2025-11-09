@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import type { Tile } from '@shared/index';
+import type { Tile } from 'types/index';
 
 export const Rack: React.FC<{
   tiles: Tile[];
@@ -54,5 +54,6 @@ export const Rack: React.FC<{
     </div>
   );
 };
+
 
 

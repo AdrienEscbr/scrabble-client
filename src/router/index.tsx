@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { HomeScreen } from '@screens/HomeScreen';
-import { LobbyScreen } from '@screens/LobbyScreen';
-import { GameScreen } from '@screens/GameScreen';
-import { EndGameScreen } from '@screens/EndGameScreen';
+import { HomeScreen } from 'screens/HomeScreen';
+import { LobbyScreen } from 'screens/LobbyScreen';
+import { GameScreen } from 'screens/GameScreen';
+import { EndGameScreen } from 'screens/EndGameScreen';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -15,4 +15,5 @@ export const AppRoutes: React.FC = () => {
     </Routes>
   );
 };
+
 

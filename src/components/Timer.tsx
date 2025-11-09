@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatMs, useTurnTimer } from '@hooks/useTurnTimer';
+import { formatMs, useTurnTimer } from 'hooks/useTurnTimer';
 
 export const Timer: React.FC<{ turnEndsAt?: number }> = ({ turnEndsAt }) => {
   const remaining = useTurnTimer(turnEndsAt);
@@ -10,4 +10,5 @@ export const Timer: React.FC<{ turnEndsAt?: number }> = ({ turnEndsAt }) => {
     </div>
   );
 };
+
 

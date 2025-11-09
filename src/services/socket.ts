@@ -1,6 +1,6 @@
 import { io, Socket } from 'socket.io-client';
-import type { ClientToServerEnvelope, ServerToClientMessage } from '@shared/index';
-import type { ClientState } from '@shared/index';
+import type { ClientToServerEnvelope, ServerToClientMessage } from 'types/index';
+import type { ClientState } from 'types/index';
 
 let socket: Socket | null = null;
 
@@ -141,4 +141,5 @@ function tryInferPlayerId(
     dispatch({ type: 'player:set', payload: { playerId: matches[0].id } });
   }
 }
+
 

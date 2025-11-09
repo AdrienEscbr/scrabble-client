@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Container, Navbar } from 'react-bootstrap';
-import { AppRoutes } from '@router/index';
-import { useClient } from '@context/ClientContext';
-import { NotificationBar } from '@components/NotificationBar';
-import { SoundToggle } from '@components/SoundToggle';
-import { useSocket } from '@hooks/useSocket';
+import { AppRoutes } from 'router/index';
+import { useClient } from 'context/ClientContext';
+import { NotificationBar } from 'components/NotificationBar';
+import { SoundToggle } from 'components/SoundToggle';
+import { useSocket } from 'hooks/useSocket';
 import { useNavigate } from 'react-router-dom';
 
 const App: React.FC = () => {
@@ -46,4 +46,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
 

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo, useReducer, useEffect } from 'react';
-import type { ClientState, ViewName, RoomSummary, GameStateSummary } from '@shared/index';
+import type { ClientState, ViewName, RoomSummary, GameStateSummary } from 'types/index';
 
 const LS_KEY = 'scrabble-client';
 
@@ -118,5 +118,6 @@ export function useClient() {
   if (!ctx) throw new Error('useClient must be used within ClientProvider');
   return ctx;
 }
+
 
 

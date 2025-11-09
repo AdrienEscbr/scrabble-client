@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { Button } from 'react-bootstrap';
-import { useClient } from '@context/ClientContext';
+import { useClient } from 'context/ClientContext';
 
 function useBeep() {
   const ctxRef = useRef<AudioContext | null>(null);
@@ -90,4 +90,5 @@ const SoundManager: React.FC = () => {
 
   return null;
 };
+
 

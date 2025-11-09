@@ -4,9 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './main.css';
 import App from './App';
-import { ClientProvider } from '@context/ClientContext';
+import { ClientProvider } from 'context/ClientContext';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
   <React.StrictMode>
     <ClientProvider>
       <BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Alert } from 'react-bootstrap';
-import { useClient } from '@context/ClientContext';
+import { useClient } from 'context/ClientContext';
 
 export const NotificationBar: React.FC = () => {
   const { state, dispatch } = useClient();
@@ -23,4 +23,5 @@ export const NotificationBar: React.FC = () => {
     </div>
   );
 };
+
 

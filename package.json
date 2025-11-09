@@ -2,26 +2,25 @@
   "name": "scrabble-client",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
+  "homepage": "https://adrienescbr.github.io/scrabble-client",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc -b && vite build && node scripts/postbuild.js",
-    "preview": "vite preview"
+    "start": "react-scripts start",
+    "build": "react-scripts build && node scripts/postbuild.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-bootstrap": "^2.10.10",
     "react-router-dom": "^7.9.5",
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
-    "@types/react": "^19.0.4",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react-swc": "^3.7.1",
-    "typescript": "^5.6.3",
-    "vite": "^5.4.10"
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.6.3"
   }
 }

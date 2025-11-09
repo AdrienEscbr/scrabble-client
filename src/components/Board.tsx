@@ -1,5 +1,5 @@
 import React from 'react';
-import type { BoardCell } from '@shared/index';
+import type { BoardCell } from 'types/index';
 
 type Placement = { x: number; y: number; letter: string; points: number; tileId: string };
 
@@ -46,5 +46,6 @@ export const Board: React.FC<{
     </div>
   );
 };
+
 
 

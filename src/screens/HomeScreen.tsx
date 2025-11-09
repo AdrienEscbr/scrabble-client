@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
-import { useClient } from '@context/ClientContext';
-import { useSocket } from '@hooks/useSocket';
+import { useClient } from 'context/ClientContext';
+import { useSocket } from 'hooks/useSocket';
 
 export const HomeScreen: React.FC = () => {
   const { state, dispatch } = useClient();
@@ -80,4 +80,5 @@ export const HomeScreen: React.FC = () => {
     </Row>
   );
 };
+
 

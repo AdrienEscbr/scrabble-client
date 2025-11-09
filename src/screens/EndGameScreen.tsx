@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card, Row, Col, Table } from 'react-bootstrap';
-import { useClient } from '@context/ClientContext';
+import { useClient } from 'context/ClientContext';
 import { useNavigate } from 'react-router-dom';
-import { useSocket } from '@hooks/useSocket';
+import { useSocket } from 'hooks/useSocket';
 
 export const EndGameScreen: React.FC = () => {
   const { state, dispatch } = useClient();
@@ -68,4 +68,5 @@ export const EndGameScreen: React.FC = () => {
     </Row>
   );
 };
+
 

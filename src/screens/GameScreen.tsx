@@ -1,11 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
-import { useClient } from '@context/ClientContext';
-import { Board } from '@components/Board';
-import { Rack } from '@components/Rack';
-import { Timer } from '@components/Timer';
-import { ActionButtons } from '@components/ActionButtons';
-import { useSocket } from '@hooks/useSocket';
+import { useClient } from 'context/ClientContext';
+import { Board } from 'components/Board';
+import { Rack } from 'components/Rack';
+import { Timer } from 'components/Timer';
+import { ActionButtons } from 'components/ActionButtons';
+import { useSocket } from 'hooks/useSocket';
 
 export const GameScreen: React.FC = () => {
   const { state } = useClient();
@@ -216,6 +216,7 @@ export const GameScreen: React.FC = () => {
     </Row>
   );
 };
+
 
 
 

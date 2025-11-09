@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PlayerSummary } from '@shared/index';
+import type { PlayerSummary } from 'types/index';
 
 export const PlayerList: React.FC<{
   players: PlayerSummary[];
@@ -25,5 +25,6 @@ export const PlayerList: React.FC<{
     </div>
   );
 };
+
 
 
