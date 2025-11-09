@@ -1,6 +1,6 @@
 import { io, Socket } from 'socket.io-client';
 import type { ClientToServerEnvelope, ServerToClientMessage } from 'types/index';
-import type { ClientState } from 'types/index';
+import type { ClientState, GameStateSummary } from 'types/index';
 
 let socket: Socket | null = null;
 
@@ -8,6 +8,7 @@ type Dispatch = React.Dispatch<
   | { type: 'connection:set'; status: ClientState['connectionStatus'] }
   | { type: 'room:update'; payload?: any }
   | { type: 'game:update'; payload?: any }
+  | { type: 'game:merge'; payload: Partial<GameStateSummary> }
   | { type: 'persist:setLastRoom'; payload?: string }
   | { type: 'player:set'; payload: { playerId?: string; nickname?: string } }
   | { type: 'view:set'; payload: ClientState['view'] }
