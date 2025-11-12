@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Card, Row, Col } from 'react-bootstrap';
 import { useClient } from 'context/ClientContext';
+import { useNavigate } from 'react-router-dom';
 import { PlayerList } from 'components/PlayerList';
 import { useSocket } from 'hooks/useSocket';
 
 export const LobbyScreen: React.FC = () => {
-  const { state } = useClient();
+  const { state, dispatch } = useClient();
+  const navigate = useNavigate();
   const { api } = useSocket();
   const room = state.currentRoom;
   if (!room) return null;
@@ -49,6 +51,14 @@ export const LobbyScreen: React.FC = () => {
               ) : null}
             </div>
             <p className="mt-3 text-muted">En attente de tous les joueurs…</p>
+            <div className="mt-2">
+              <Button
+                variant="outline-danger"
+                onClick={() => { api.leaveRoom(room.id); dispatch({ type: 'room:update', payload: undefined }); dispatch({ type: 'view:set', payload: 'home' }); navigate('/'); }}
+              >
+                Quitter la room
+              </Button>
+            </div>
           </Card.Body>
         </Card>
       </Col>

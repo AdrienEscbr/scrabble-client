@@ -6,9 +6,11 @@ import { Rack } from 'components/Rack';
 import { Timer } from 'components/Timer';
 import { ActionButtons } from 'components/ActionButtons';
 import { useSocket } from 'hooks/useSocket';
+import { useNavigate } from 'react-router-dom';
 
 export const GameScreen: React.FC = () => {
-  const { state } = useClient();
+  const { state, dispatch } = useClient();
+  const navigate = useNavigate();
   const { api } = useSocket();
   const roomId = state.currentRoom?.id!;
   const gs = state.gameState;
@@ -213,6 +215,9 @@ export const GameScreen: React.FC = () => {
                   if (!roomId) return;
                   if (confirm('Quitter la partie et fermer la room pour tous ?')) {
                     api.leaveRoom(roomId);
+                    dispatch({ type: 'room:update', payload: undefined });
+                    dispatch({ type: 'view:set', payload: 'home' });
+                    navigate('/');
                   }
                 }}
                 title="Quitter la partie et fermer la room"

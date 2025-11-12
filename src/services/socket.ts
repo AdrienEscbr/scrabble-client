@@ -39,12 +39,6 @@ export function connectSocket(dispatch: Dispatch, getState: () => ClientState) {
 
   socket.on('connect', () => {
     dispatch({ type: 'connection:set', status: 'connected' });
-
-    // Try automatic reconnect if we have persisted info
-    const { playerId, lastRoomId } = getState();
-    if (playerId && lastRoomId) {
-      sendMessage('reconnect', { playerId, lastRoomId });
-    }
   });
 
   socket.on('disconnect', () => {
