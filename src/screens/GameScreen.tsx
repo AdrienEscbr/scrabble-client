@@ -131,6 +131,16 @@ export const GameScreen: React.FC = () => {
               placements={placements}
               onPlace={onPlace}
               onRemovePlacement={(x, y) => { if (!isMyTurn) return; setPlacements((prev) => prev.filter((p) => !(p.x === x && p.y === y))); }}
+              onDropFromRack={(x, y, tileId) => {
+                const cell = gs?.board[y]?.[x];
+                if (!cell || cell.letter) return;
+                const tile = (gs?.myRack ?? []).find((t) => t.tileId === tileId);
+                if (!tile) return;
+                setPlacements((prev) => [
+                  ...prev.filter((p) => !(p.x === x && p.y === y)),
+                  { x, y, letter: tile.letter, points: tile.points, tileId: tile.tileId },
+                ]);
+              }}
             />
           </Card.Body>
         </Card>
@@ -165,7 +175,7 @@ export const GameScreen: React.FC = () => {
           <Card.Body>
             <h6>Historique</h6>
             <ul className="small ps-3 log-panel mb-0">
-              {gs.log.map((l, i) => (
+              {[...gs.log].slice().reverse().map((l, i) => (
                 <li key={`${i}-${l.playerId}-${l.summary}`}>{l.summary}</li>
               ))}
             </ul>

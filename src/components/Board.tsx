@@ -8,7 +8,8 @@ export const Board: React.FC<{
   placements: Placement[];
   onPlace: (x: number, y: number) => void;
   onRemovePlacement?: (x: number, y: number) => void;
-}> = ({ board, placements, onPlace, onRemovePlacement }) => {
+  onDropFromRack?: (x: number, y: number, tileId: string) => void;
+}> = ({ board, placements, onPlace, onRemovePlacement, onDropFromRack }) => {
   const placedMap = new Map<string, Placement>();
   for (const p of placements) placedMap.set(`${p.x},${p.y}`, p);
 
@@ -23,6 +24,7 @@ export const Board: React.FC<{
             // Only render '?' when the tile's letter is an explicit empty string (joker).
             const raw = placed ? placed.letter : cell.letter;
             const letter = raw === '' ? '?' : (raw ?? '');
+            const value = placed ? placed.points : (cell.points ?? undefined);
             const bonusClass = cell.bonus ? `bonus-${cell.bonus}` : '';
             return (
               <div
@@ -35,9 +37,17 @@ export const Board: React.FC<{
                     onRemovePlacement(x, y);
                   }
                 }}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  const tileId = e.dataTransfer?.getData('text/plain');
+                  if (tileId && onDropFromRack) onDropFromRack(x, y, tileId);
+                }}
                 title={cell.bonus || ''}
               >
                 {letter}
+                {letter && letter !== '?' && value != null ? (
+                  <span className="tile-points">{value}</span>
+                ) : null}
               </div>
             );
           })}

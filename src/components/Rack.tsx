@@ -38,7 +38,7 @@ export const Rack: React.FC<{
           onClick={() => !disabled && onSelect(t.tileId)}
           role="button"
           draggable={true}
-          onDragStart={() => handleDragStart(t.tileId)}
+          onDragStart={(e) => { handleDragStart(t.tileId); try { e.dataTransfer.setData('text/plain', t.tileId); } catch {} }}
           onDragOver={(e) => {
             e.preventDefault();
             setDragOver(t.tileId);
@@ -48,6 +48,7 @@ export const Rack: React.FC<{
           style={{ outline: dragOver === t.tileId ? '2px dashed #6c757d' : undefined }}
         >
           {t.letter || '?'}
+          {t.letter ? <span className="tile-points">{t.points}</span> : null}
         </span>
       ))}
     </div>
