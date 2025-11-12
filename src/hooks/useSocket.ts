@@ -22,7 +22,6 @@ export function useSocket() {
       joinRoom: (nickname: string, roomId: string) =>
         sendMessage('joinRoom', { nickname, roomId, playerId: stateRef.current.playerId }),
       reconnect: (playerId: string, lastRoomId: string) => sendMessage('reconnect', { playerId, lastRoomId }),
-      toggleReady: (roomId: string, ready: boolean) => sendMessage('toggleReady', { roomId, ready }),
       toggleReady: (roomId: string, ready: boolean) =>
         sendMessage('toggleReady', { roomId, ready, playerId: stateRef.current.playerId }),
       startGame: (roomId: string) =>

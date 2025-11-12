@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/scrabble-client/static/css/main.099eb35e.css",
-    "main.js": "/scrabble-client/static/js/main.6a2fd818.js",
+    "main.js": "/scrabble-client/static/js/main.5003906d.js",
     "index.html": "/scrabble-client/index.html",
     "main.099eb35e.css.map": "/scrabble-client/static/css/main.099eb35e.css.map",
-    "main.6a2fd818.js.map": "/scrabble-client/static/js/main.6a2fd818.js.map"
+    "main.5003906d.js.map": "/scrabble-client/static/js/main.5003906d.js.map"
   },
   "entrypoints": [
     "static/css/main.099eb35e.css",
-    "static/js/main.6a2fd818.js"
+    "static/js/main.5003906d.js"
   ]
 }
