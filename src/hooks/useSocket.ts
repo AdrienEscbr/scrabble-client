@@ -23,7 +23,10 @@ export function useSocket() {
         sendMessage('joinRoom', { nickname, roomId, playerId: stateRef.current.playerId }),
       reconnect: (playerId: string, lastRoomId: string) => sendMessage('reconnect', { playerId, lastRoomId }),
       toggleReady: (roomId: string, ready: boolean) => sendMessage('toggleReady', { roomId, ready }),
-      startGame: (roomId: string) => sendMessage('startGame', { roomId }),
+      toggleReady: (roomId: string, ready: boolean) =>
+        sendMessage('toggleReady', { roomId, ready, playerId: stateRef.current.playerId }),
+      startGame: (roomId: string) =>
+        sendMessage('startGame', { roomId, playerId: stateRef.current.playerId }),
       playMove: (args: {
         roomId: string;
         action: 'play' | 'pass' | 'exchange';
