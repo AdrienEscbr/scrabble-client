@@ -116,7 +116,20 @@ export const GameScreen: React.FC = () => {
 
   const canValidate = placements.length > 0 && isMyTurn && !exchangeMode;
 
-  if (!gs) return null;
+  if (!gs) {
+    return (
+      <Row>
+        <Col className="d-flex justify-content-center">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <h6>Chargement du jeu…</h6>
+              <div className="text-muted">En attente de l'état de la partie.</div>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    );
+  }
 
   // Sidebar scores
   const scoreRows = Object.entries(gs.scoresByPlayer)
